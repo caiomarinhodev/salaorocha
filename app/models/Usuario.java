@@ -12,7 +12,7 @@ public class Usuario {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUsuario;
     @Column
     private String nome;
     @Column
@@ -24,30 +24,42 @@ public class Usuario {
     @Column
     private String telefone;
     @Column
-    private String foto;
+    private String data;
     @Column
     private String endereco;
+    @Column
+    private Long corteId;
 
     public Usuario(){
 
     }
 
-    public Usuario(String nome, String email, String senha, int tipo, String telefone, String foto, String endereco) {
+    public Usuario(String nome, String email, String senha, int tipo, String telefone, String data, String endereco) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.tipo = tipo;
         this.telefone = telefone;
-        this.foto = foto;
+        this.data = data;
         this.endereco = endereco;
+        this.corteId = null;
     }
 
-    public Long getId() {
-        return id;
+
+    public Long getCorteId() {
+        return corteId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCorteId(Long corteId) {
+        this.corteId = corteId;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -90,12 +102,12 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getData() {
+        return data;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getEndereco() {

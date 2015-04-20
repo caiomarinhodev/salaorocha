@@ -41,20 +41,20 @@
       </div>
 
       <div class="register-box-body">
-        <form action="#" method="post">
+        <form action="/reg" method="post">
           <div class="form-group has-feedback">
             <label>Nome:</label>
-            <input type="text" class="form-control" placeholder="Seu Nome"/>
+            <input name="nome" type="text" class="form-control" placeholder="Seu Nome"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <label>Email:</label>
-            <input type="text" class="form-control" placeholder="Digite seu email"/>
+            <input name="email" type="text" class="form-control" placeholder="Digite seu email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
             <label>Senha:</label>
-            <input type="password" class="form-control" placeholder="*******"/>
+            <input name="senha" type="password" class="form-control" placeholder="*******"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group">
@@ -63,7 +63,7 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+              <input name="data" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
             </div><!-- /.input group -->
           </div>
           <div class="form-group">
@@ -72,12 +72,12 @@
               <div class="input-group-addon">
                 <i class="fa fa-phone"></i>
               </div>
-              <input type="text" class="form-control" data-inputmask='"mask": "(99)9999-9999"' data-mask/>
+              <input name="telefone" type="text" class="form-control" data-inputmask='"mask": "(99)9999-9999"' data-mask/>
             </div><!-- /.input group -->
           </div>
           <div class="form-group has-feedback">
             <label>Endereço:</label>
-            <input type="text" class="form-control" placeholder="Rua Joao Ferreira, 345"/>
+            <input name="endereco" type="text" class="form-control" placeholder="Rua Joao Ferreira, 345"/>
             <span class="glyphicon glyphicon-move form-control-feedback"></span>
           </div>
           <div class="row">
