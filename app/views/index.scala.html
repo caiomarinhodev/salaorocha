@@ -1,7 +1,123 @@
-@(message: String)
-
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
-}
+@()
+<!DOCTYPE html>
+<html>
+<head>
+<title>Salão Rocha</title>
+<link href="assets/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+<script src="assets/web/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="assets/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Salão Rocha" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,800,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!---->
+<div class="header">
+	 <div class="container">
+		 <!-- Logo tipo -->
+		 <div class="logo">
+			 <a href="#"><img src="assets/web/images/logo.png" alt=""/></a>
+		 </div>
+		 <div class="top-menu">
+				<span class="menu"> </span>
+				<ul>
+					<!-- <li class="active"><a href="index.html">HOME</a></li>
+					 <li><a href="about.html">ABOUT US</a></li>
+					 <li><a href="gallery.html">GALLERY</a></li>					 
+					 <li><a href="404.html">BLOG</a></li>					 
+					 <li class="top-contact"><a href="contact.html">CONTACT</a></li> -->
+				 </ul>
+		 </div>
+		 <div class="clearfix"></div>
+			 <!--script-nav
+		 <script>
+		 $("span.menu").click(function(){
+		 $(".top-menu ul").slideToggle("slow" , function(){
+		 });
+		 });
+		 </script>		-->
+	 </div>
+</div>
+<!--header-->
+<script src="assets/web/js/responsiveslides.min.js"></script>
+ <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true
+      });
+    });
+  </script>
+<div class="slider">
+	 <div class="container">
+		   <div class="callbacks_container">
+			  <ul class="rslides" id="slider">
+				 <li>	          
+					 <h3>Black cat crossed the road in front of me.</h3>		          
+				 </li>
+				 <li>	          
+					 <h3>In front of me black cat crossed the road.</h3>		          
+				 </li>
+				 <li>	          
+					 <h3>What's meant to be will always find a way.</h3>		          
+				 </li>
+			  </ul>
+		  </div>
+	  </div>
+</div>
+<!----->
+<div class="container">
+	  <div class="signin-section">	 
+		 <h3>Escolha uma opção abaixo para <span>agendar</span> sua sessão:</h3>
+		 <a class="signin" href="/registrar">REGISTRAR</a>
+		 <a class="signup" href="/login">ENTRAR</a>
+	 </div>
+</div>
+<!----->
+<div class="app">
+	 <div class="container">
+		 <div class="app-grid">
+			 <div class="col-md-4 app-info">
+				 <h3>Acesse também pelo Celular</h3>
+				 <p>Nosso site é totalmente adaptável, e com design responsível para ser acessado via celular. </p>
+				 <!--<a href="#"><img src="images/play.png" alt=""/></a>-->
+			 </div>
+			 <div class="col-md-8 app-pic">
+				 <img src="assets/web/images/phone.png" alt=""/>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!----->
+<!--<div class="download">
+	 <div class="container">
+		 <h3>This website is absolutely awesome, download it for free!</h3>
+		 <a href="#">GET NOW</a>
+	 </div>
+</div>-->
+<!----->
+<div class="footer">
+	 <div class="container">
+		  <div class="fooicon">
+			 <!--<a href="#"><i class="inst"></i></a>
+			 <a href="#"><i class="dribb"></i></a>
+			 <a href="#"><i class="twit"></i></a> -->
+			  <a href="#"><img src="assets/web/images/iface.png" class="lfoo"/></a>
+			  <a href="#"><img src="assets/web/images/gplus.png" class="lfoo"/></a>
+		  </div>
+		  <div class="copy-right">
+			<p>&#169;Salão Rocha - Criado por <a href="http://caiomarinho.com/">Caio Marinho</a></p>
+		  </div>
+		  <div class="clearfix"></div>
+	 </div>
+</div>
