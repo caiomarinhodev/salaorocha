@@ -3,11 +3,11 @@
 <html>
 <head>
 <title>Salão Rocha</title>
-<link href="assets/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/assets/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (Bootstrap's JavaScript plugins) -->
-<script src="assets/web/js/jquery.min.js"></script>
+<script src="/assets/web/js/jquery.min.js"></script>
 <!-- Custom Theme files -->
-<link href="assets/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/assets/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,15 +15,28 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,800,700' rel='stylesheet' type='text/css'>
+    <style>
+        .clearfix{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .logo{
+            margin-left: 36%;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
 <!---->
 <div class="header">
 	 <div class="container">
 		 <!-- Logo tipo -->
-		 <div class="logo">
-			 <a href="#"><img src="assets/web/images/logo.png" alt=""/></a>
-		 </div>
+         <div class="logo">
+             <img src="assets/web/images/logtt.png" alt=""/>
+         </div>
+
 		 <div class="top-menu">
 				<span class="menu"> </span>
 				<ul>
@@ -34,7 +47,8 @@
 					 <li class="top-contact"><a href="contact.html">CONTACT</a></li> -->
 				 </ul>
 		 </div>
-		 <div class="clearfix"></div>
+		 <div class="clearfix">
+         </div>
 			 <!--script-nav
 		 <script>
 		 $("span.menu").click(function(){
@@ -45,7 +59,7 @@
 	 </div>
 </div>
 <!--header-->
-<script src="assets/web/js/responsiveslides.min.js"></script>
+<script src="/assets/web/js/responsiveslides.min.js"></script>
  <script>
     $(function () {
       $("#slider").responsiveSlides({
@@ -60,15 +74,15 @@
 <div class="slider">
 	 <div class="container">
 		   <div class="callbacks_container">
-			  <ul class="rslides" idUsuario="slider">
+			  <ul class="rslides" id="slider">
 				 <li>	          
-					 <h3>Black cat crossed the road in front of me.</h3>		          
+					 <h3>Cansado de procurar por um salão de beleza com qualidade?</h3>
 				 </li>
 				 <li>	          
-					 <h3>In front of me black cat crossed the road.</h3>		          
+					 <h3>Nós fazemos o melhor serviço no segmento.</h3>
 				 </li>
 				 <li>	          
-					 <h3>What's meant to be will always find a way.</h3>		          
+					 <h3>Agende um serviço de beleza hoje mesmo!</h3>
 				 </li>
 			  </ul>
 		  </div>

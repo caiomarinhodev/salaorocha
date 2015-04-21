@@ -1,4 +1,4 @@
-@(usuario: Usuario)
+@(usuario: Usuario, cortes: List[Corte], data: String)
 
 @main(usuario){
     <!-- Left side column. contains the logo and sidebar -->
@@ -19,13 +19,13 @@
             <ul class="sidebar-menu">
                 <li class="header">MENU</li>
                 <li class="active treeview">
-                    <a href="#">
+                    <a href="/agendaa">
                         <i class="fa fa-dashboard"></i> AGENDA
                     </a>
                 </li>
-                <li><a href="#"><i class="fa fa-comment text-danger"></i><span> CHAT</span></a></li>
+                <li><a href="/chata"><i class="fa fa-comment text-danger"></i><span> CHAT</span></a></li>
                 <li>
-                    <a href="#">
+                    <a href="/outros">
                         <i class="fa fa-cloud text-primary"></i>
                         OUTROS
                     </a>
@@ -52,6 +52,12 @@
 
             <div class="row">
                 <div class="col-md-4">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">Data Atual:</h3>
+                            <h3>@data</h3>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="box box-primary">
@@ -60,7 +66,7 @@
                         </div>
                             <!-- /.box-header -->
                             <!-- form start -->
-                        <form method="get" action="#">
+                        <form method="post" action="/s">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Data:</label>
@@ -68,10 +74,10 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
-                                        data-mask="">
+                                        <input id="data" name="dataAtual" type="text" class="form-control"
+                                        data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-info btn-flat" type="button" idUsuario="go">Go!</button>
+                                            <button class="btn btn-info btn-flat" type="submit" id="go">Go!</button>
                                         </span>
                                     </div>
                                 </div>
@@ -83,49 +89,72 @@
 
             </div>
 
-            <div class="row oculto" idUsuario="table">
+            <div class="row" id="table">
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Agenda</h3>
+                            <h3 class="box-title">Agenda de @data</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body no-padding">
                             <table class="table table-striped">
                                 <tr>
-                                    <th style="width: 10px">#</th>
                                     <th style="width: 125px">Status</th>
                                     <th>Hora</th>
                                     <th>Cliente</th>
                                     <th>Telefone</th>
+                                    <th>Data Nascimento</th>
+                                    <th>Endereço</th>
                                 </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><button class="btn btn-danger" style="width: 100%">Agendado</button></td>
-                                    <td>08:00</td>
-                                    <td>Fulaninho da Silva Chavier</td>
-                                    <td>83 9999-0909</td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><button class="btn btn-primary" style="width: 100%">Livre</button></td>
-                                    <td>09:00</td>
-                                    <td>Fulaninho da Silva Chavier</td>
-                                    <td>83 9999-0909</td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><button class="btn btn-primary" style="width: 100%">Livre</button></td>
-                                    <td>09:00</td>
-                                    <td>Fulaninho da Silva Chavier</td>
-                                    <td>83 9999-0909</td>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td><button class="btn btn-primary" style="width: 100%">Livre</button></td>
-                                    <td>09:00</td>
-                                    <td>Fulaninho da Silva Chavier</td>
-                                    <td>83 9999-0909</td>
-                                </tr>
+                                @for(i <- 0 to (cortes.size()-1)){
+                                    <tr>
+                                        <td>
+                                            <form action="/marcar" method="post">
+                                                <input type="hidden" name="hora" value="@Util.getHora(i)"/>
+                                                <input type="hidden" name="dataAgora" value="@data"/>
+                                                @if(cortes.get(i) !=null){
+                                                <button type="submit" class="btn btn-danger" style="width: 100%">Agendado</button>
+                                            }else{
+                                                <button type="submit" class="btn btn-primary" style="width: 100%">Livre</button>
+                                            }
+                                            </form>
+                                        </td>
+                                        <td>
+                                        @if(cortes.get(i)!=null){
+                                            @cortes.get(i).getHora
+                                        }else{
+                                            @Util.getHora(i);
+                                        }
+                                        </td>
+                                        <td>
+                                        @if(cortes.get(i)!=null){
+                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getNome
+                                        }else{
+
+                                        }
+                                        </td>
+                                        <td>
+                                        @if(cortes.get(i)!=null){
+                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getTelefone
+                                        }else{
+
+                                        }
+                                        </td>
+                                        <td>
+                                        @if(cortes.get(i)!=null){
+                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getData
+                                        }else{
+
+                                        }
+                                        </td>
+                                        <td>
+                                        @if(cortes.get(i)!=null){
+                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getEndereco
+                                        }else{
+
+                                        }
+                                        </td>
+                                    </tr>
+                                }
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
@@ -146,6 +175,8 @@
     $('#go').click(function(){
     $('#table').slideToggle();
     });
+
+        $('#data').val(new Date( ).toLocaleDateString());
 
     $(function () {
     //Datemask dd/mm/yyyy

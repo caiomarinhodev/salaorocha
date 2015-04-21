@@ -15,4 +15,8 @@ public class Util {
             }
         }return -1;
     }
+
+    public static String getHora(int i){
+        return l[i];
+    }
 }

@@ -26,6 +26,10 @@ public class Sistema {
         return false;
     }
 
+    public static Usuario getUsuario(Long id){
+        return dao.findByEntityId(Usuario.class,id);
+    }
+
     public static boolean removeUsuario(Long id){
         Usuario u = dao.findByEntityId(Usuario.class,id);
         if(u!=null){
@@ -56,20 +60,12 @@ public class Sistema {
     Inicia tudo relacionado a Agenda
      */
 
-    public static Dia getDia(String data){
-        List<Dia> l = dao.findByAttributeName(Dia.class.getName(),"data",data);
+    public static Corte getCorte(Long idCorte){
+       List<Corte> l = dao.findByAttributeName(Corte.class.getName(),"idCorte", String.valueOf(idCorte));
         if(l.size()>0){
             return l.get(0);
         }
         return null;
-    }
-
-    public static Dia getDia(Long id){
-        return dao.findByEntityId(Dia.class,id);
-    }
-
-    public static Corte getCorte(Long idCorte){
-        return dao.findByEntityId(Corte.class,idCorte);
     }
 
     public static List<Corte> getListaCortesDia(String data){
@@ -101,9 +97,29 @@ public class Sistema {
         return false;
     }
 
+    public static Usuario getAdmin(){
+        List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"tipo",String.valueOf(0));
+        if(l.size()>0){
+            return l.get(0);
+        }
+        return null;
+    }
+
     public static void agendarCorte(Corte c){
+        Usuario admin = getAdmin();
+        Usuario u = getUsuario(c.getClienteId());
         if(!existeCorte(c)){
-            dao.persist(c);
+            if(c.getClienteId()==admin.getIdUsuario()){
+                dao.persist(c);
+            }else{
+                if(u.getCorteId()!=null){
+                    Corte corte = getCorte(u.getCorteId());
+                    dao.remove(corte);
+                }
+                dao.persist(c);
+                u.setCorteId(c.getIdCorte());
+                dao.merge(u);
+            }
             dao.flush();
         }
     }
@@ -142,4 +158,44 @@ public class Sistema {
      /*
     Finish tudo relacionado a Usuario
      */
+
+    /*
+    Inicia tudo relacionado a Chat
+     */
+    public static List<Mensagem> getListaDeMensagens(){
+        return dao.findAllByClassName(Mensagem.class.getName());
+    }
+
+    public static Mensagem getMensagem(Long idMensagem){
+        return dao.findByEntityId(Mensagem.class,idMensagem);
+    }
+
+    public static List<Mensagem> getListaMensagensDoUsuario(Long idUsuario){
+        return dao.findByAttributeName(Mensagem.class.getName(),"idUsuario", String.valueOf(idUsuario));
+    }
+
+    public static void addMensagem(Mensagem m){
+        dao.persist(m);
+        dao.flush();
+    }
+
+    public static void removeMensagem(Long id){
+        Mensagem me = getMensagem(id);
+        if(me!=null){
+            dao.remove(me);
+            dao.flush();
+        }
+    }
+    /*
+    Finish tudo relacionado a Chat
+     */
+
+
+    public static int getTotalUsadoBd(){
+        List<Usuario> lu = getTodosUsuarios();
+        List<Corte> lc = dao.findAllByClassName(Corte.class.getName());
+        List<Mensagem> lm = getListaDeMensagens();
+
+        return (lu.size()+lc.size()+lm.size());
+    }
 }

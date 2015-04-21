@@ -1,3 +1,4 @@
+import models.Corte;
 import models.GenericDAO;
 import models.Usuario;
 import play.Application;

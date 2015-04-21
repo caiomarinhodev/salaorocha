@@ -3,17 +3,30 @@
 # ~~~~
 
 # Home page
-GET         /                    controllers.Application.index
-GET         /login               controllers.Application.renderlogin
-GET         /registrar           controllers.Application.renderRegistro
-GET         /logout              controllers.Application.deslogar
-GET         /admin               controllers.Application.renderAgendaAdmin
-GET         /app                 controllers.Application.renderAgendar
+GET         /                           controllers.Application.index
+GET         /login                      controllers.Application.renderlogin
+GET         /registrar                  controllers.Application.renderRegistro
+GET         /logout                     controllers.Application.deslogar
+GET         /admin/:str                 controllers.Application.renderAgendaAdmin(str: String)
+GET         /app/:str                   controllers.Application.renderAgendar(str: String)
+GET         /chata                      controllers.Application.chata
+GET         /chatu                      controllers.Application.chatu
+GET         /agendaa                    controllers.Application.barraAgendaA
+GET         /agendau                    controllers.Application.barraAgendaU
+GET         /remove/:i                  controllers.Application.removeMensagem(i: Long)
+GET         /outros                     controllers.Application.renderOutros
 
-POST        /reg                 controllers.Application.register
-POST        /enter               controllers.Application.enter
+
+POST        /marcar                     controllers.Application.agendaCorte
+POST        /reg                        controllers.Application.register
+POST        /enter                      controllers.Application.enter
+POST        /s                          controllers.Application.search
+POST        /addmensage                 controllers.Application.addMensagem
+
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.at(path="/public/assets/", file)
+GET         /assets/*file               controllers.Assets.at(path="/public/assets/", file)
+GET         /remove/assets/*file        controllers.Assets.at(path="/public/assets/", file)
 
     
