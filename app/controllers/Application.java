@@ -18,6 +18,7 @@ import java.util.Date;
 
 public class Application extends Controller {
 
+    @Transactional
     public static Result index() {
         return ok(index.render());
     }

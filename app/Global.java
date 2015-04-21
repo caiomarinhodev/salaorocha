@@ -1,4 +1,3 @@
-import models.Corte;
 import models.GenericDAO;
 import models.Usuario;
 import play.Application;
@@ -6,7 +5,6 @@ import play.GlobalSettings;
 import play.Logger;
 import play.db.jpa.JPA;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,7 +25,7 @@ public class Global extends GlobalSettings {
 
                 List<Usuario> lis = dao.findAllByClassName(Usuario.class.getName());
                 if (lis.size() < 1) {
-                    Usuario usuario = new Usuario("admin","admin","admin",0,"",null,"");
+                    Usuario usuario = new Usuario("Administrador","admin","admin",0,"","","");
                     dao.persist(usuario);
 
 //
