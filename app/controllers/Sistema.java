@@ -1,7 +1,6 @@
 package controllers;
 
 import models.*;
-import play.db.jpa.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,7 @@ public class Sistema {
         Usuario admin = getAdmin();
         Usuario u = getUsuario(c.getClienteId());
         if(!existeCorte(c)){
-            if(c.getClienteId()==admin.getIdUsuario()){
+            if(c.getClienteId()==admin.getId()){
                 dao.persist(c);
             }else{
                 if(u.getCorteId()!=null){

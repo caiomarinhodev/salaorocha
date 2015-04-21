@@ -12,7 +12,8 @@ public class Usuario {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long id;
+
     @Column
     private String nome;
     @Column
@@ -54,12 +55,12 @@ public class Usuario {
         this.corteId = corteId;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

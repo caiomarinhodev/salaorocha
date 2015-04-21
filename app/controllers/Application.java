@@ -155,7 +155,7 @@ public class Application extends Controller {
         String data = d.get("dataAgora");
         int horaPos = Util.getPos(hora);
         Usuario u = Sistema.getUsuario(session().get("email"));
-        Corte co = new Corte(hora,data,horaPos,u.getIdUsuario());
+        Corte co = new Corte(hora,data,horaPos,u.getId());
         Sistema.agendarCorte(co);
         if(u.getTipo()==0){
             return renderAgendaAdmin(data);
@@ -202,7 +202,7 @@ public class Application extends Controller {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date d = new Date();
         String data = df.format(d);
-        Mensagem me = new Mensagem(u.getIdUsuario(),data,mensagem);
+        Mensagem me = new Mensagem(u.getId(),data,mensagem);
         Sistema.addMensagem(me);
         if(u.getTipo()==0){
             return chata();
