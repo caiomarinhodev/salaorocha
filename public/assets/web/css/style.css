@@ -279,8 +279,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1ff82', end
 .app{
 padding:6% 0;
 }
-.app-pic img{
-margin:1em 2em 0 3em;
+.app-pic{
+	margin-left: 50%;
+	margin-top: -25%;
+
 }
 .app-info h3{
 color:#7c7c7c;

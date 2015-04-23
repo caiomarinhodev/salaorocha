@@ -30,12 +30,15 @@ public class Usuario {
     private String endereco;
     @Column
     private Long corteId;
+    @Column
+    private String url_pic;
 
     public Usuario(){
 
     }
 
-    public Usuario(String nome, String email, String senha, int tipo, String telefone, String data, String endereco) {
+    public Usuario(String nome, String email, String senha, int tipo, String telefone, String data, String endereco,
+                   String url_pic) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -43,9 +46,18 @@ public class Usuario {
         this.telefone = telefone;
         this.data = data;
         this.endereco = endereco;
+        this.url_pic = url_pic;
         this.corteId = null;
     }
 
+
+    public String getUrl_pic() {
+        return url_pic;
+    }
+
+    public void setUrl_pic(String url_pic) {
+        this.url_pic = url_pic;
+    }
 
     public Long getCorteId() {
         return corteId;

@@ -54,8 +54,9 @@ public class Application extends Controller {
         data = r.get("data");
         telefone = r.get("telefone");
         endereco = r.get("endereco");
+        String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
         int tipo = 1;
-        Usuario u = new Usuario(nome,email,senha,tipo,telefone,data,endereco);
+        Usuario u = new Usuario(nome,email,senha,tipo,telefone,data,endereco, foto);
         if(Sistema.addUsuario(u)){
             return renderlogin();
         }

@@ -25,7 +25,8 @@ public class Global extends GlobalSettings {
 
                 List<Usuario> lis = dao.findAllByClassName(Usuario.class.getName());
                 if (lis.size() < 1) {
-                    Usuario usuario = new Usuario("Administrador","admin","admin",0,"","","");
+                    String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
+                    Usuario usuario = new Usuario("Administrador","admin","admin",0,"","","",foto);
                     dao.persist(usuario);
 
 //
