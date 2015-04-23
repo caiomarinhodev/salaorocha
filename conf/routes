@@ -18,6 +18,7 @@ GET         /outros                     controllers.Application.renderOutros
 
 
 POST        /marcar                     controllers.Application.agendaCorte
+POST        /desmarcar                  controllers.Application.desmarcarCorte
 POST        /reg                        controllers.Application.register
 POST        /enter                      controllers.Application.enter
 POST        /s                          controllers.Application.search

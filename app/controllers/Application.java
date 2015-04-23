@@ -149,6 +149,20 @@ public class Application extends Controller {
     }
 
     @Transactional
+    public static Result desmarcarCorte(){
+        DynamicForm d = Form.form().bindFromRequest();
+        Long id = Long.parseLong(d.get("id"));
+        String data = d.get("dataAgora");
+        Usuario u = Sistema.getUsuario(session().get("email"));
+        Sistema.desmarcarCorte(id);
+        if(u.getTipo()==0){
+            return renderAgendaAdmin(data);
+        }
+        return renderAgendar(data);
+    }
+
+
+    @Transactional
     public static Result agendaCorte(){
         DynamicForm d = Form.form().bindFromRequest();
         String hora = d.get("hora");

@@ -21,11 +21,14 @@ h1,h2,h3,h4,h5,h6{
 	margin:0;			   
 }
 
-.logo{
-	margin-bottom: 20px;
-}
 .lfoo{
 	margin: 5px;
+}
+
+.logo{
+	margin-left: 36%;
+	margin-right: auto;
+	margin-bottom: 20px;
 }
 
 
@@ -41,6 +44,11 @@ h1,h2,h3,h4,h5,h6{
 	.copy-right{
 		text-align: center;
 		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.logo{
+		margin-left: 18%;
 		margin-right: auto;
 	}
 }
@@ -895,9 +903,7 @@ padding: 0.7em 1em;
 font-size: 1em;
 margin: 0 0 0em 1em;
 }
-.logo {
-margin-top: 0.5em;
-}
+
 .rslides h3 {
 font-size: 1.7em;
 }
@@ -1017,9 +1023,7 @@ padding: 0 0.7em 2.1em 0.7em;
 .header {
 padding-top: 2em;
 }
-.logo {
-width: 19%;
-}
+
 .logo a img{
 background-size:100%;
 width: 100%;
@@ -1104,11 +1108,6 @@ margin: 1.5em 0 0 0;
 @media (max-width:480px){
 .header {
 text-align: center;
-}
-.logo {
-width: 25%;
-float:none;
-margin:0 auto 1em auto;
 }
 .top-menu {
 float: none;
@@ -1283,10 +1282,7 @@ display:block;
 background:none;
 padding:0 0 10px 0;
 }
-.logo {
-width: 43%;
-margin: 0 auto;
-}
+
 .rslides h3 {
 font-size: 0.9em;
 }

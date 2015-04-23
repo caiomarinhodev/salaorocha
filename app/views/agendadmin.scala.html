@@ -108,15 +108,20 @@
                                 @for(i <- 0 to (cortes.size()-1)){
                                     <tr>
                                         <td>
-                                            <form action="/marcar" method="post">
-                                                <input type="hidden" name="hora" value="@Util.getHora(i)"/>
-                                                <input type="hidden" name="dataAgora" value="@data"/>
-                                                @if(cortes.get(i) !=null){
-                                                <button type="submit" class="btn btn-danger" style="width: 100%">Agendado</button>
+                                            @if(cortes.get(i) !=null){
+                                                <form action="/desmarcar" method="post">
+                                                    <input type="hidden" name="id" value="@cortes.get(i).getIdCorte"/>
+                                                    <input type="hidden" name="dataAgora" value="@data"/>
+                                                    <button type="submit" class="btn btn-danger" style="width: 100%">Agendado</button>
+                                                </form>
+
                                             }else{
-                                                <button type="submit" class="btn btn-primary" style="width: 100%">Livre</button>
+                                                <form action="/marcar" method="post">
+                                                    <input type="hidden" name="hora" value="@Util.getHora(i)"/>
+                                                    <input type="hidden" name="dataAgora" value="@data"/>
+                                                    <button type="submit" class="btn btn-primary" style="width: 100%">Livre</button>
+                                                </form>
                                             }
-                                            </form>
                                         </td>
                                         <td>
                                         @if(cortes.get(i)!=null){
