@@ -895,6 +895,11 @@ font-size: 1em;
 .header {
 padding-top: 2.5em;
 }
+	.app-pic{
+		margin-left: 0;
+		margin-top: 0;
+
+	}
 .top-menu ul li a {
 font-size: 1em;
 margin: 0 0.5em;
