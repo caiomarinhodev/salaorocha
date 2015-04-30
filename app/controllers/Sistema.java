@@ -126,6 +126,9 @@ public class Sistema {
     public static void desmarcarCorte(Long id){
         Corte c = dao.findByEntityId(Corte.class,id);
         if(c!=null){
+            Usuario u = getUsuario(c.getClienteId());
+            u.setCorteId(null);
+            dao.merge(u);
             dao.remove(c);
             dao.flush();
         }

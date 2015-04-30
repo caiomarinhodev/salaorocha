@@ -243,5 +243,13 @@ public class Application extends Controller {
         Usuario u = Sistema.getUsuario(session().get("email"));
         return ok(outrosadmin.render(u,Sistema.getTodosUsuarios()));
     }
+    @Transactional
+    public static Result removeUsuario(Long id){
+        Usuario u = Sistema.getUsuario(id);
+        if(u!=null){
+            Sistema.removeUsuario(id);
+        }
+        return renderOutros();
+    }
 
 }

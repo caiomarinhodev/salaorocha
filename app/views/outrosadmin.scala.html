@@ -115,6 +115,8 @@
                                             <th>Telefone</th>
                                             <th>Endereco</th>
                                             <th>Email</th>
+                                            <th>Data</th>
+                                            <th></th>
                                         </tr>
                                         @for(u <- usuarios){
                                             <tr>
@@ -125,6 +127,8 @@
                                                 </td>
                                                 <td>@u.getEndereco</td>
                                                 <td>@u.getEmail</td>
+                                                <td>@u.getData</td>
+                                                <td><a href="/rem/@u.getId"><span class="fa fa-trash-o"></span></a></td>
                                             </tr>
                                         }
                                     </table>

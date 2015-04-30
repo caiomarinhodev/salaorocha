@@ -31,13 +31,8 @@ public class Global extends GlobalSettings {
 
 //
 //                    for(int i=1; i<=31; i++){
-//                        Cliente cli = new Cliente("cliente"+(i*31),"(83) 9999-9999","","","","","","","","","");
+//                        Usuario cli = new Usuario("cl"+i,"cl"+i,"cl"+i,1,"","","",foto);
 //                        dao.persist(cli);
-//                        Calendar calendar = Calendar.getInstance();
-//                        java.util.Date d = calendar.getTime();
-//                        Date date = new Date(d.getYear(),(d.getMonth()-1),i);
-//                        Chamada cha = new Chamada(cli,"","","",0,t2,date,"","");
-//                        dao.persist(cha);
 //                    }
 
 
