@@ -39,6 +39,14 @@ public class Sistema {
         return false;
     }
 
+    public static boolean existeAdmin(){
+        Usuario u = getUsuario("administrador");
+        if(u!=null){
+            return true;
+        }
+        return false;
+    }
+
     public static Usuario getUsuario(String email){
         List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"email",email);
         if(l.size()>0){

@@ -120,8 +120,13 @@
                                                     <input type="hidden" name="hora" value="@Util.getHora(i)"/>
                                                     <input type="hidden" name="dataAgora" value="@data"/>
                                                     @if(cortes.get(i) != null) {
-                                                        <button type="submit" class="btn btn-danger" style="width : 80%">
-                                                            Ocupado</button>
+                                                        @if(cortes.get(i).getClienteId.equals(usuario.getId)){
+                                                            <button type="submit" class="btn btn-success" style="width : 80%">
+                                                                @usuario.getNome</button>
+                                                        }else{
+                                                            <button type="submit" class="btn btn-danger" style="width : 80%">
+                                                                Ocupado</button>
+                                                        }
                                                     } else {
                                                         <button type="submit" class="btn btn-primary" style="width : 80%">
                                                             Livre</button>

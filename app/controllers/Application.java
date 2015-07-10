@@ -71,11 +71,16 @@ public class Application extends Controller {
         senha = r.get("senha");
         Usuario u = Sistema.getUsuario(email);
         if(u!=null && senha!=""){
-            session().put("email",email);
             if(u.getTipo()==0){
-                return renderAgendaAdmin(null);
+                if(senha.equals(u.getSenha())){
+                    session().put("email",email);
+                    return renderAgendaAdmin(null);
+                }
             }else{
-                return renderAgendar(null);
+                if(senha.equals(u.getSenha())){
+                    session().put("email",email);
+                    return renderAgendar(null);
+                }
             }
         }
         return renderlogin();
