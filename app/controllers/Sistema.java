@@ -40,7 +40,7 @@ public class Sistema {
     }
 
     public static boolean existeAdmin(){
-        Usuario u = getUsuario("administrador");
+        Usuario u = getUsuario("adminsalaorocha");
         if(u!=null){
             return true;
         }
