@@ -29,8 +29,8 @@ public class Global extends GlobalSettings {
                 dao.persist(us);
                 dao.flush();
                 if (!Sistema.existeAdmin()) {
-                    String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
-                    Usuario us = new Usuario("Administrador", "admin", "admin", 0, "", "", "", foto);
+                    String fo = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
+                    Usuario u = new Usuario("Administrador", "admin", "admin", 0, "", "", "", fo);
                     dao.persist(us);
 //
 //                    for(int i=1; i<=31; i++){
