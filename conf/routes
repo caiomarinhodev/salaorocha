@@ -17,6 +17,7 @@ GET         /remove/:i                  controllers.Application.removeMensagem(i
 GET         /outros                     controllers.Application.renderOutros
 GET         /rem/:id                    controllers.Application.removeUsuario(id: Long)
 GET         /json                       controllers.Application.json()
+GET         /jsoncorte                  controllers.Application.jsoncorte()
 
 POST        /marcar                     controllers.Application.agendaCorte
 POST        /desmarcar                  controllers.Application.desmarcarCorte
@@ -30,6 +31,6 @@ POST        /addmensage                 controllers.Application.addMensagem
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file               controllers.Assets.at(path="/public/assets/", file)
 GET         /remove/assets/*file        controllers.Assets.at(path="/public/assets/", file)
-GET         /rem/assets/*file        controllers.Assets.at(path="/public/assets/", file)
+GET         /rem/assets/*file           controllers.Assets.at(path="/public/assets/", file)
 
     

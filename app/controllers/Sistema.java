@@ -25,9 +25,39 @@ public class Sistema {
         return false;
     }
 
+    public static List<Corte> getTodosCortes(){
+        return dao.findAllByClassName(Corte.class.getName());
+    }
+
     public static List<Usuario> getAdmins(){
         List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"tipo","0");
         return l;
+    }
+
+    public static void alimentabd(){
+        List<Usuario> lu = getTodosUsuarios();
+        List<Corte> lc = getTodosCortes();
+        List<Mensagem> lm = getListaDeMensagens();
+
+        for(Mensagem m: lm){
+            dao.remove(m);
+        }
+        for(Corte c: lc){
+            dao.remove(c);
+        }
+        for(Usuario u: lu){
+            dao.remove(u);
+        }
+        dao.flush();
+
+        for(Usuario u: lu){
+            addUsuario(u);
+        }
+
+        for(Corte c: lc){
+            agendarCorte(c);
+        }
+
     }
 
     public static Usuario getUsuario(Long id){

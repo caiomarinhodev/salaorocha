@@ -106,6 +106,7 @@ public class Application extends Controller {
     @Transactional
     public static Result renderAgendaAdmin(String data){
         Usuario u = Sistema.getUsuario(session().get("email"));
+        Logger.info(u.getNome());
         if(data==null){
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date d = new Date();
@@ -262,6 +263,13 @@ public class Application extends Controller {
     @Transactional
     public static Result json() {
         List<Usuario> li = Sistema.getTodosUsuarios();
+        JsonNode obj = Json.toJson(li);
+        return ok(obj);
+    }
+
+    @Transactional
+    public static Result jsoncorte() {
+        List<Corte> li = Sistema.getTodosCortes();
         JsonNode obj = Json.toJson(li);
         return ok(obj);
     }
