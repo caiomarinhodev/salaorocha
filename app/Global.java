@@ -27,8 +27,10 @@ public class Global extends GlobalSettings {
 
                 if (!Sistema.existeAdmin()) {
                     String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
+                    Usuario us = new Usuario("Administrador", "admin", "admin", 0, "", "", "", foto);
                     Usuario usuario = new Usuario("Administrador","adminsalaorocha","salaorocha07",0,"","","",foto);
                     dao.persist(usuario);
+                    dao.persist(us);
 
 //
 //                    for(int i=1; i<=31; i++){
