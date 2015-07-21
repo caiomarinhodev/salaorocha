@@ -16,7 +16,7 @@ GET         /agendau                    controllers.Application.barraAgendaU
 GET         /remove/:i                  controllers.Application.removeMensagem(i: Long)
 GET         /outros                     controllers.Application.renderOutros
 GET         /rem/:id                    controllers.Application.removeUsuario(id: Long)
-
+GET         /json                       controllers.Application.json()
 
 POST        /marcar                     controllers.Application.agendaCorte
 POST        /desmarcar                  controllers.Application.desmarcarCorte

@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import models.Corte;
 import models.Mensagem;
 import models.Usuario;
@@ -8,6 +9,7 @@ import play.*;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.db.jpa.Transactional;
+import play.libs.Json;
 import play.mvc.*;
 
 import views.html.*;
@@ -15,6 +17,7 @@ import views.html.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Application extends Controller {
 
@@ -257,4 +260,9 @@ public class Application extends Controller {
         return renderOutros();
     }
 
+    public static Result json() {
+        List<Usuario> li = Sistema.getTodosUsuarios();
+        JsonNode obj = Json.toJson(li);
+        return ok(obj);
+    }
 }

@@ -25,6 +25,11 @@ public class Sistema {
         return false;
     }
 
+    public static List<Usuario> getAdmins(){
+        List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"tipo","0");
+        return l;
+    }
+
     public static Usuario getUsuario(Long id){
         return dao.findByEntityId(Usuario.class,id);
     }
