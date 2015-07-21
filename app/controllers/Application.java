@@ -259,7 +259,7 @@ public class Application extends Controller {
         }
         return renderOutros();
     }
-
+    @Transactional
     public static Result json() {
         List<Usuario> li = Sistema.getTodosUsuarios();
         JsonNode obj = Json.toJson(li);

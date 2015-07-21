@@ -24,12 +24,11 @@ public class Global extends GlobalSettings {
 
             public void invoke() throws Throwable {
 
-                String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
                 List<Usuario> li = Sistema.getAdmins();
                 for(Usuario u: li){
                     dao.remove(u);
                 }
-                dao.flush();
+                Sistema.deletacristiano();
                 if (!Sistema.existeAdmin()) {
                     String fo = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
                     Usuario u = new Usuario("Administrador", "admin", "admin", 0, "", "", "", fo);

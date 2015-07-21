@@ -52,6 +52,16 @@ public class Sistema {
         return false;
     }
 
+    public static void deletacristiano(){
+        List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"email","admin");
+        if(l.size()>0){
+            for(int i=0; i<l.size();i++){
+                dao.remove(l.get(i));
+            }
+        }
+        dao.flush();
+    }
+
     public static Usuario getUsuario(String email){
         List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"email",email);
         if(l.size()>0){
