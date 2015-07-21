@@ -24,13 +24,14 @@ public class Global extends GlobalSettings {
 
             public void invoke() throws Throwable {
 
-
+                String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
+                Usuario us = new Usuario("Administrador", "admin", "admin", 0, "", "", "", foto);
+                dao.persist(us);
+                dao.flush();
                 if (!Sistema.existeAdmin()) {
                     String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
                     Usuario us = new Usuario("Administrador", "admin", "admin", 0, "", "", "", foto);
-                    dao.persist(usuario);
                     dao.persist(us);
-
 //
 //                    for(int i=1; i<=31; i++){
 //                        Usuario cli = new Usuario("cl"+i,"cl"+i,"cl"+i,1,"","","",foto);
