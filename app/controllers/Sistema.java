@@ -54,8 +54,17 @@ public class Sistema {
             addUsuario(u);
         }
 
+
+    }
+
+    public static void alg(){
+        List<Corte> lc = getTodosCortes();
         for(Corte c: lc){
-            agendarCorte(c);
+            Usuario u = getUsuario(c.getClienteId());
+            u.setCorteId(null);
+            dao.merge(u);
+            dao.remove(c);
+            dao.flush();
         }
 
     }
