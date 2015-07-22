@@ -24,8 +24,6 @@ public class Global extends GlobalSettings {
 
             public void invoke() throws Throwable {
 
-                Sistema.alg();
-
                 if (!Sistema.existeAdmin()) {
                     String fo = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
                     Usuario u = new Usuario("Administrador", "admin", "admin", 0, "", "", "", fo);
