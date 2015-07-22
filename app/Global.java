@@ -24,7 +24,7 @@ public class Global extends GlobalSettings {
 
             public void invoke() throws Throwable {
 
-
+                Sistema.alimentabd();
 
 //                List<Usuario> li = Sistema.getAdmins();
 //                for(Usuario u: li){
