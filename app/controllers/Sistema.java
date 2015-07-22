@@ -17,12 +17,18 @@ public class Sistema {
      */
 
     public static boolean addUsuario(Usuario u){
-        if(u!=null && u.getNome()!="" && u.getSenha()!=""){
-            dao.persist(u);
-            dao.flush();
-            return true;
-        }
-        return false;
+        dao.persist(u);
+        dao.flush();
+        return true;
+    }
+
+    public static String removeaspas(String s){
+        String line1 = s.replace("\"", "");
+        return line1;
+    }
+
+    public static void addUs(Usuario u){
+        dao.persist(u);
     }
 
     public static List<Corte> getTodosCortes(){
@@ -34,40 +40,6 @@ public class Sistema {
         return l;
     }
 
-    public static void alimentabd(){
-        List<Usuario> lu = getTodosUsuarios();
-        List<Corte> lc = getTodosCortes();
-        List<Mensagem> lm = getListaDeMensagens();
-
-        for(Mensagem m: lm){
-            dao.remove(m);
-        }
-        for(Corte c: lc){
-            dao.remove(c);
-        }
-        for(Usuario u: lu){
-            dao.remove(u);
-        }
-        dao.flush();
-
-        for(Usuario u: lu){
-            addUsuario(u);
-        }
-
-
-    }
-
-    public static void alg(){
-        List<Corte> lc = getTodosCortes();
-        for(Corte c: lc){
-            Usuario u = getUsuario(c.getClienteId());
-            u.setCorteId(null);
-            dao.merge(u);
-            dao.remove(c);
-            dao.flush();
-        }
-
-    }
 
     public static Usuario getUsuario(Long id){
         return dao.findByEntityId(Usuario.class,id);
@@ -91,15 +63,6 @@ public class Sistema {
         return false;
     }
 
-    public static void deletacristiano(){
-        List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"email","admin");
-        if(l.size()>0){
-            for(int i=0; i<l.size();i++){
-                dao.remove(l.get(i));
-            }
-        }
-        dao.flush();
-    }
 
     public static Usuario getUsuario(String email){
         List<Usuario> l = dao.findByAttributeName(Usuario.class.getName(),"email",email);
@@ -183,6 +146,10 @@ public class Sistema {
             }
             dao.flush();
         }
+    }
+
+    public static void mergeUser(Usuario u){
+        dao.merge(u);
     }
 
     public static void desmarcarCorte(Long id){

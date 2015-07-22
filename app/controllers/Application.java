@@ -61,6 +61,7 @@ public class Application extends Controller {
         int tipo = 1;
         Usuario u = new Usuario(nome,email,senha,tipo,telefone,data,endereco, foto);
         if(Sistema.addUsuario(u)){
+
             return renderlogin();
         }
         return renderRegistro();
