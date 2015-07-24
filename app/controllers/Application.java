@@ -43,8 +43,8 @@ public class Application extends Controller {
         return ok(login.render());
     }
 
-    public static Result renderRegistro(){
-        return ok(register.render());
+    public static Result renderRegistro(String message){
+        return ok(register.render(message));
     }
 
     @Transactional
@@ -59,12 +59,14 @@ public class Application extends Controller {
         endereco = r.get("endereco");
         String foto = "https://cdn4.iconfinder.com/data/icons/meBaze-Freebies/512/user.png";
         int tipo = 1;
-        Usuario u = new Usuario(nome,email,senha,tipo,telefone,data,endereco, foto);
-        if(Sistema.addUsuario(u)){
-
+        Usuario usuario = Sistema.getUsuario(email);
+        if(usuario == null){
+            Usuario u = new Usuario(nome,email,senha,tipo,telefone,data,endereco, foto);
+            Sistema.addUsuario(u);
             return renderlogin();
         }
-        return renderRegistro();
+        return renderRegistro("Email já Cadastrado !");
+
     }
 
     @Transactional

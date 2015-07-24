@@ -108,16 +108,20 @@
                         <div class="row">
                             <div class="box">
                                 <div class="box-body no-padding">
-                                    <table class="table">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>Cliente</th>
-                                            <th>Telefone</th>
-                                            <th>Endereco</th>
-                                            <th>Email</th>
-                                            <th>Data</th>
-                                            <th></th>
-                                        </tr>
+                                    <table id="tabela" class="table table-bordered table-striped dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Cliente</th>
+                                                <th>Telefone</th>
+                                                <th>Endereco</th>
+                                                <th>Email</th>
+                                                <th>Senha</th>
+                                                <th>Data</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                         @for(u <- usuarios){
                                             <tr>
                                                 <td>@u.getId</td>
@@ -127,10 +131,12 @@
                                                 </td>
                                                 <td>@u.getEndereco</td>
                                                 <td>@u.getEmail</td>
+                                                <td>@u.getSenha</td>
                                                 <td>@u.getData</td>
                                                 <td><a href="/rem/@u.getId"><span class="fa fa-trash-o"></span></a></td>
                                             </tr>
                                         }
+                                        </tbody>
                                     </table>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
