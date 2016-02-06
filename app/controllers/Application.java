@@ -180,9 +180,10 @@ public class Application extends Controller {
         DynamicForm d = Form.form().bindFromRequest();
         String hora = d.get("hora");
         String data = d.get("dataAgora");
+        String nomeus = d.get("nomeus");
         int horaPos = Util.getPos(hora);
         Usuario u = Sistema.getUsuario(session().get("email"));
-        Corte co = new Corte(hora,data,horaPos,u.getId());
+        Corte co = new Corte(hora,data,horaPos,u.getId(),nomeus);
         Sistema.agendarCorte(co);
         if(u.getTipo()==0){
             return renderAgendaAdmin(data);

@@ -20,16 +20,27 @@ public class Corte {
     private int horaPos;
     @Column
     private Long clienteId;
+    @Column
+    private String nomeCliente;
 
     public Corte(){
 
     }
 
-    public Corte(String hora, String data, int horaPos, Long clienteId) {
+    public Corte(String hora, String data, int horaPos, Long clienteId, String nomeCliente) {
         this.hora = hora;
         this.data = data;
         this.horaPos = horaPos;
         this.clienteId = clienteId;
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     public Long getIdCorte() {

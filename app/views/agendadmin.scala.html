@@ -1,199 +1,277 @@
 @(usuario: Usuario, cortes: List[Corte], data: String)
 
-@main(usuario){
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-                <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="@usuario.getUrl_pic" class="img-circle" alt="User Image" />
-                </div>
-                <div class="pull-left info">
-                    <p>@usuario.getNome</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-                <li class="header">MENU</li>
-                <li class="active treeview">
-                    <a href="/agendaa">
-                        <i class="fa fa-dashboard"></i> AGENDA
-                    </a>
-                </li>
-                <li><a href="/chata"><i class="fa fa-comment text-danger"></i><span> CHAT</span></a></li>
-                <li>
-                    <a href="/outros">
-                        <i class="fa fa-cloud text-primary"></i>
-                        OUTROS
-                    </a>
-                </li>
-            </ul>
-        </section>
-            <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Agenda
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Agenda</li>
-            </ol>
-        </section>
-
-        <section class="content">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Data Atual:</h3>
-                            <h3>@data</h3>
-                        </div>
+    @main(usuario) {
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="@usuario.getUrl_pic" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p>@usuario.getNome</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Selecione uma Data:</h3>
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MENU</li>
+                    <li class="active treeview">
+                        <a href="/agendaa">
+                            <i class="fa fa-dashboard"></i> AGENDA
+                        </a>
+                    </li>
+                    <li><a href="/chata"><i class="fa fa-comment text-danger"></i><span> CHAT</span></a></li>
+                    <li>
+                        <a href="/outros">
+                            <i class="fa fa-cloud text-primary"></i>
+                            OUTROS
+                        </a>
+                    </li>
+                </ul>
+            </section>
+                <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Agenda
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Agenda</li>
+                </ol>
+            </section>
+
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">Data Atual:</h3>
+                                <h3>@data</h3>
+                            </div>
                         </div>
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                        <form method="post" action="/s">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>Data:</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <!--<input id="data" name="dataAtual" type="text" class="form-control"
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">Selecione uma Data:</h3>
+                            </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                            <form method="post" action="/s">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>Data:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                                <!--<input id="data" name="dataAtual" type="text" class="form-control"
                                         data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
-                                        <input name="dataAtual" type="text" class="datepicker form-control">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-info btn-flat" type="submit" id="go">Go!</button>
-                                        </span>
+                                            <input name="dataAtual" type="text" class="datepicker form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-info btn-flat" type="submit" id="go">Go!</button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                                <!-- /.box-body -->
-                        </form>
+                                    <!-- /.box-body -->
+                            </form>
+                        </div>
                     </div>
+
                 </div>
 
-            </div>
-
-            <div class="row" id="table">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Agenda de @data</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body no-padding">
-                            <table class="table table-striped">
-                                <tr>
-                                    <th style="width: 125px">Status</th>
-                                    <th>Hora</th>
-                                    <th>Cliente</th>
-                                    <th>Telefone</th>
-                                    <th>Data Nascimento</th>
-                                    <th>Endereço</th>
-                                </tr>
-                                @for(i <- 0 to (cortes.size()-1)){
+                <div class="row" id="table">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Agenda de @data</h3>
+                            </div><!-- /.box-header -->
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
                                     <tr>
-                                        <td>
-                                            @if(cortes.get(i) !=null){
+                                        <th style="width : 125 px">Status</th>
+                                        <th>Hora</th>
+                                        <th>Cliente</th>
+                                        <th>Telefone</th>
+                                        <th>Data Nascimento</th>
+                                        <th>Endereço</th>
+                                    </tr>
+                                    @for(i <- 0 to (cortes.size() - 1)) {
+                                        <tr>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
                                                 <form action="/desmarcar" method="post">
                                                     <input type="hidden" name="id" value="@cortes.get(i).getIdCorte"/>
                                                     <input type="hidden" name="dataAgora" value="@data"/>
-                                                    <button type="submit" class="btn btn-danger" style="width: 100%">Agendado</button>
+                                                    <button type="submit" class="btn btn-danger" style="width : 100 %;">
+                                                        Agendado</button>
                                                 </form>
 
-                                            }else{
+                                            } else {
                                                 <form action="/marcar" method="post">
                                                     <input type="hidden" name="hora" value="@Util.getHora(i)"/>
                                                     <input type="hidden" name="dataAgora" value="@data"/>
-                                                    <button type="submit" class="btn btn-primary" style="width: 100%">Livre</button>
+                                                    <input type="hidden" name="nomeus" />
+                                                    <a href="#" type="button" data-click="@i" class="btn btn-primary mark" style="width : 100 %;">
+                                                        Livre</a>
+                                                        <!-- Modal -->
+                                                    <div id="@i" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+
+                                                                <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <center><h2 class="modal-title">Concluido!</h2></center>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <center>
+                                                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                 </form>
                                             }
-                                        </td>
-                                        <td>
-                                        @if(cortes.get(i)!=null){
-                                            @cortes.get(i).getHora
-                                        }else{
-                                            @Util.getHora(i);
-                                        }
-                                        </td>
-                                        <td>
-                                        @if(cortes.get(i)!=null){
-                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getNome
-                                        }else{
+                                            </td>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
+                                                @cortes.get(i).getHora
+                                            } else {
+                                                @Util.getHora(i);
+                                            }
+                                            </td>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
+                                                @if(Sistema.getUsuario(cortes.get(i).getClienteId).getNome.equals(Sistema.getAdmin().getNome)) {
+                                                    @cortes.get(i).getNomeCliente
+                                                }
+                                            } else {
 
-                                        }
-                                        </td>
-                                        <td>
-                                        @if(cortes.get(i)!=null){
-                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getTelefone
-                                        }else{
+                                            }
+                                            </td>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
+                                                @Sistema.getUsuario(cortes.get(i).getClienteId).getTelefone
+                                            } else {
 
-                                        }
-                                        </td>
-                                        <td>
-                                        @if(cortes.get(i)!=null){
-                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getData
-                                        }else{
+                                            }
+                                            </td>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
+                                                @Sistema.getUsuario(cortes.get(i).getClienteId).getData
+                                            } else {
 
-                                        }
-                                        </td>
-                                        <td>
-                                        @if(cortes.get(i)!=null){
-                                            @Sistema.getUsuario(cortes.get(i).getClienteId).getEndereco
-                                        }else{
+                                            }
+                                            </td>
+                                            <td>
+                                            @if(cortes.get(i) != null) {
+                                                @Sistema.getUsuario(cortes.get(i).getClienteId).getEndereco
+                                            } else {
 
-                                        }
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
+                                            }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </div><!-- /.content-wrapper -->
+        </div> <!-- /.content-wrapper -->
+        <script src="assets/plugins/jQuery/jQuery-2.1.3.min.js" type="text/javascript"></script>
+        <script>
 
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="assets/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
-    <script src="assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
-    <script src="assets/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
-    <!-- AdminLTE for demo purposes -->
+            $(document ).ready(function(){
+               $('.mark' ).on('click', function(){
+                   console.log("======== ID clickado btn: "+$(this ).data('click'));
+                   var string_data = $(this ).data('click');
+                   swal ( {
+                   title : "Digite o nome:",
+                   type : "input",
+                   showCancelButton : true,
+                   closeOnConfirm : false,
+                   animation : "slide-from-top",
+                   inputPlaceholder : "insira o nome" },
+                   function ( inputValue ) {
+                   if ( inputValue === false ) return false ;
+                   if ( inputValue === "" ) {
+                   swal.showInputError ( "Escreva algum nome!" ) ;
+                   return false
+                   }
+                   $ ( '[name=nomeus]' ).val ( inputValue ) ;
+                   console.log(string_data);
+                   console.log ( "======== NOME DIGITADO: " + $ ( '[name=nomeus]' ).val ( ) ) ;
+                   $("#"+string_data).modal("show" );
+                   swal ( "Cadastrado!", "Usuario cadastrado: " + inputValue, "success" ) ;
 
-    <script type="text/javascript">
-    $('#go').click(function(){
-    $('#table').slideToggle();
-    });
+                   } ) ;
+                   });
+            });
+        function insert_name () {
+            console.log($(this ).data('click'));
+            swal ( {
+            title : "Digite o nome:",
+            type : "input",
+            showCancelButton : true,
+            closeOnConfirm : false,
+            animation : "slide-from-top",
+            inputPlaceholder : "insira o nome" },
+            function ( inputValue ) {
+                if ( inputValue === false ) return false ;
+                if ( inputValue === "" ) {
+                    swal.showInputError ( "Escreva algum nome!" ) ;
+                    return false
+                }
+                $ ( '[name=nomeus]' ).val ( inputValue ) ;
+                console.log(string_data);
+                console.log ( "======== NOME DIGITADO: " + $ ( '[name=nomeus]' ).val ( ) ) ;
+                $ ( '#mark' ).attr ( 'type', 'submit' ) ;
+                $ ( '#mark' ).trigger ( 'click' ) ;
+                swal ( "Cadastrado!", "Usuario cadastrado: " + inputValue, "success" ) ;
+                $("#"+string_data).modal("show");
+            } ) ;
+        }
+        </script>
+        <script src="/assets/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="assets/sweetalert/dist/sweetalert.min.js" type="text/javascript"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="assets/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+        <script src="assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+        <script src="assets/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+        <!-- AdminLTE for demo purposes -->
 
-        $('#data').val(new Date( ).toLocaleDateString());
+        <script type="text/javascript">
+        $ ( '#go' ).click ( function ( ) {
+        $ ( '#table' ).slideToggle ( ) ;
+        } ) ;
 
-    $(function () {
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        $ ( '#data' ).val ( new Date ( ).toLocaleDateString ( ) ) ;
 
-    //Money Euro
-    $("[data-mask]").inputmask();
+        $ ( function ( ) {
+        //Datemask dd/mm/yyyy
+        $ ( "#datemask" ).inputmask ( "dd/mm/yyyy", { "placeholder" : "dd/mm/yyyy" } ) ;
+        //Datemask2 mm/dd/yyyy
+        $ ( "#datemask2" ).inputmask ( "mm/dd/yyyy", { "placeholder" : "mm/dd/yyyy" } ) ;
 
-    });
-    </script>
+        //Money Euro
+        $ ( "[data-mask]" ).inputmask ( ) ;
 
-}
+        } ) ;
+        </script>
+
+    }
